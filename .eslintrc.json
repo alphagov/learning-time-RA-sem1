@@ -1,0 +1,19 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "eslint:recommended",
+    "prettier"
+  ],
+  "env": {
+    "jest/globals": true,
+    "node": true
+  },
+  "overrides": [
+    {
+      "files": ["scripts/**/*", "tests/**"],
+      "rules": { "no-console": ["off"] }
+    }
+  ],
+  "plugins": ["jest"]
+}
