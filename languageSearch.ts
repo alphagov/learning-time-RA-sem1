@@ -16,6 +16,3 @@ const getRepoLanguage = async (owner: string, repoName: string) => {
   }
 }
 
-getRepoLanguage("alphagov", "di-authentication-api").then((data) =>
-  console.log(data)
-)
