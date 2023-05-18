@@ -5,7 +5,7 @@ export type listOrgReposResponse = Endpoints["GET /orgs/{org}/repos"]["response"
 type ArrayElement<ArrayType extends readonly unknown[]> = ArrayType extends readonly (infer ElementType)[] ? ElementType : never //Thanks stack overflow
 
 
-const token = process.env.GITHUB_TOKEN
+const token = process.env.GITHUB_KEY
 
 
 const octokit = new Octokit({
@@ -54,6 +54,4 @@ const repoNameSearch = async(org: string, filterKey: string) => {
     const filteredDataByName = returnFilteredRepoNames(data, filterKey)
     return filteredDataByName
 }
-
-repoNameSearch('alphagov', 'di-').then((data) => console.log(data))
 
