@@ -16,3 +16,7 @@ const getRepoLanguage = async (owner: string, repoName: string) => {
   }
 }
 
+const getRepoLanguagesFromList = async(repoNames: string[]) => repoNames.map(repoName => {
+    const [owner, repo ] = repoName.split('/')
+    return getRepoLanguage(owner, repo)
+})
