@@ -12,7 +12,7 @@ export const octokit = new Octokit({
     auth: token
 })
 
-
+// TODO: Come back and add an includeArchived param that filters our response by if it is archived or not
 const getAllRepos = async(org: string, page = 1, acc: listOrgReposResponse['data'] = [], per_page?: number ): Promise<listOrgReposResponse['data']> => {
     const res: listOrgReposResponse  = await octokit.request(`GET /orgs/${org}/repos`,{ 
         per_page: per_page || 100,
@@ -55,3 +55,6 @@ const repoNameSearch = async(org: string, filterKey: string) => {
     return filteredDataByName
 }
 
+const repoNames = async(org : string): Promise<string[]> => {
+    return (await getAllRepos(org)).map(repo => repo.name)
+}
