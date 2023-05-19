@@ -44,7 +44,7 @@ const getSpecificPageofRepos = async(org: string, page: number, per_page?: numbe
 
 const returnFilteredRepoNames = (data: listOrgReposResponse['data'], filterKey: string): string[]=> {
     return data.reduce((acc: string[], repo: ArrayElement<listOrgReposResponse['data']>) => {
-        if(repo.name.startsWith(filterKey)) acc.push(repo.name)
+        if(repo.name.startsWith(filterKey)) acc.push(repo.name) //TODO: Using '.startsWith' works for my specific case, rethink this apporach later
         return acc
     }, [])
 }
