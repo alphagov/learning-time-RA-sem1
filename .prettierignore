@@ -1,0 +1,11 @@
+*.sh
+.editorconfig
+.env*
+.eslintignore
+.gitignore
+.prettierignore
+.pnp.*
+.yarn
+dist/
+yarn.lock
+babelrc.js
