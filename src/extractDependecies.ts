@@ -24,7 +24,14 @@ const makeContentsRequest = async (
   fileName: string
 ): Promise<contentsRequestData> => {
   return (
-    (await octokit.request(`GET /repos/${org}/${repoName}/contents/${fileName}`)).data
+    (await octokit.request(`GET /repos/${org}/${repoName}/contents/${fileName}`, 
+    {
+      per_page: 100,
+      page: 1,
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    })).data
   )
 }
 
