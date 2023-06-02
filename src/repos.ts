@@ -3,7 +3,7 @@ import { Endpoints } from '@octokit/types'
 
 export type listOrgReposResponse =
   Endpoints['GET /orgs/{org}/repos']['response']
-type ArrayElement<ArrayType extends readonly unknown[]> =
+export type ArrayElement<ArrayType extends readonly unknown[]> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never //Thanks stack overflow
 
 const token = process.env.GITHUB_KEY

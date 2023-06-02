@@ -1,9 +1,8 @@
 import { Endpoints } from '@octokit/types'
 import { Octokit } from 'octokit'
 import { repoNameSearch, repoNames } from './repos'
-import * as fs from 'fs'
 
-type repoLanguageResponse =
+export type repoLanguageResponse =
   Endpoints['GET /repos/{owner}/{repo}/languages']['response']['data']
 
 const token = process.env.GITHUB_KEY
@@ -12,10 +11,10 @@ export const octokit = new Octokit({
   auth: token
 })
 
-const getRepoLanguage = async (
+export const getRepoLanguage = async (
   owner: string,
   repoName: string
-): Promise<repoLanguageResponse> => {
+): Promise<Record<string, repoLanguageResponse>> => {
   return {
     [repoName]: (
       await octokit.request(`GET /repos/${owner}/${repoName}/languages`, {
