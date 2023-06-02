@@ -33,6 +33,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/request-error", "npm:3.0.3"],\
             ["@octokit/types", "npm:9.2.2"],\
             ["@types/jest", "npm:29.5.1"],\
+            ["@types/node", "npm:20.2.5"],\
             ["@types/yargs", "npm:17.0.24"],\
             ["@typescript-eslint/eslint-plugin", "virtual:47e3fe05a111abe92df2f4cc19310cd9e0724589bc4f808f6ff938313fcffd05c2e2a47d6443b6ad712054cd17a8c1511793e9a14f9dc03535043a9e8d5dd26c#npm:5.59.6"],\
             ["@typescript-eslint/parser", "virtual:47e3fe05a111abe92df2f4cc19310cd9e0724589bc4f808f6ff938313fcffd05c2e2a47d6443b6ad712054cd17a8c1511793e9a14f9dc03535043a9e8d5dd26c#npm:5.59.6"],\
@@ -3561,6 +3562,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:20.1.5"]\
           ],\
           "linkType": "HARD"\
+        }],\
+        ["npm:20.2.5", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-20.2.5-0014d2d9ce-38ce7c7e9d.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:20.2.5"]\
+          ],\
+          "linkType": "HARD"\
         }]\
       ]],\
       ["@types/prettier", [\
@@ -7036,6 +7044,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@octokit/request-error", "npm:3.0.3"],\
             ["@octokit/types", "npm:9.2.2"],\
             ["@types/jest", "npm:29.5.1"],\
+            ["@types/node", "npm:20.2.5"],\
             ["@types/yargs", "npm:17.0.24"],\
             ["@typescript-eslint/eslint-plugin", "virtual:47e3fe05a111abe92df2f4cc19310cd9e0724589bc4f808f6ff938313fcffd05c2e2a47d6443b6ad712054cd17a8c1511793e9a14f9dc03535043a9e8d5dd26c#npm:5.59.6"],\
             ["@typescript-eslint/parser", "virtual:47e3fe05a111abe92df2f4cc19310cd9e0724589bc4f808f6ff938313fcffd05c2e2a47d6443b6ad712054cd17a8c1511793e9a14f9dc03535043a9e8d5dd26c#npm:5.59.6"],\
@@ -8911,7 +8920,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@tsconfig/node12", "npm:1.0.11"],\
             ["@tsconfig/node14", "npm:1.0.3"],\
             ["@tsconfig/node16", "npm:1.0.4"],\
-            ["@types/node", null],\
+            ["@types/node", "npm:20.2.5"],\
             ["@types/swc__core", null],\
             ["@types/swc__wasm", null],\
             ["@types/typescript", null],\
