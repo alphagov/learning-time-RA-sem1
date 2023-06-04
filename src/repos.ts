@@ -78,3 +78,9 @@ export const repoNameSearch = async (org: string, filterKey: string) => {
 export const repoNames = async (org: string): Promise<string[]> => {
   return (await getAllRepos(org)).map((repo) => repo.full_name)
 }
+
+const getAllReposPaginate = async(org : string) => {
+  const res = await octokit.paginate(`GET /orgs/${org}/repos`)
+
+  return res.filter((repo: any) => !repo.archived)
+}
