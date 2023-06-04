@@ -13,11 +13,6 @@ export const octokit = new Octokit({
 type contentsRequestData =
   Endpoints['GET /repos/{owner}/{repo}/contents/{path}']['response']['data']
 
-const dependencyFiles: Record<string, string> = {
-  JavaScript: 'package.json',
-  TypeScript: 'package.json'
-}
-
 const makeContentsRequest = async (
   org: string,
   repoName: string,
@@ -35,7 +30,7 @@ const makeContentsRequest = async (
   )
 }
 
-const returnDependencyFile = async (
+export const returnDependencyFile = async (
   org: string,
   repoName: string,
   filename: string
