@@ -9,7 +9,7 @@ type Options = {
   writeOut: boolean | undefined
   path: string | undefined
 }
-import { getAllReposPaginate } from '../utils/repos'
+import { repoNames } from '../utils/repos'
 
 
 
@@ -24,10 +24,11 @@ export const builder: CommandBuilder<Options, Options> = (yargs) =>
 
 export const handler = async(argv: Arguments<Options>): Promise<void> => {
   const { org, includeArchived, writeOut, path } = argv
-  const res = includeArchived ? await getAllReposPaginate(org, true) : await getAllReposPaginate(org)
+  const res = includeArchived ? await repoNames(org, true) : await repoNames(org)
   if(writeOut && path){
-    writeOutJson(path, `${org}-repos`, JSON.stringify(res))
+    await writeOutJson(path, `${org}-repos`, JSON.stringify(res))
+  } else{
+    process.stdout.write(JSON.stringify(res))
   }
-  process.stdout.write(JSON.stringify(res[1]))
   process.exit(0)
 }
