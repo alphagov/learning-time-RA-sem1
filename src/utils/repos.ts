@@ -69,18 +69,18 @@ const returnFilteredRepoNames = (
   )
 }
 
-export const repoNameSearch = async (org: string, filterKey: string) => {
-  const data = await getAllRepos(org)
+export const repoNameSearch = async (org: string, filterKey: string, archived = false) => {
+  const data = await getAllReposPaginate(org)
   const filteredDataByName = returnFilteredRepoNames(data, filterKey)
   return {[`${org}/"${filterKey}"`] :filteredDataByName}
 }
 
-export const repoNames = async (org: string): Promise<string[]> => {
-  return (await getAllRepos(org)).map((repo) => repo.full_name)
+export const repoNames = async (org: string, archived = false): Promise<string[]> => {
+  return (await getAllReposPaginate(org, archived)).map((repo) => repo.full_name)
 }
 
 export const getAllReposPaginate = async(org : string, archived = false) => {
-  const res = await octokit.paginate(`GET /orgs/${org}/repos`)
+  const res = await octokit.paginate(`GET /orgs/${org}/repos`) as listOrgReposResponse['data']
   if(archived) return res
-  else return res.filter((repo:any ) => !repo.archived)
+  else return res.filter((repo:any ) => !repo.archived) as listOrgReposResponse['data']
 }
