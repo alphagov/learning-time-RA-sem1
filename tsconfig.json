@@ -7,8 +7,7 @@
     "strict": true,
     "target": "es2020",
     "resolveJsonModule": true,
-    "rootDir": "src", 
-    "outDir": "dist"
+    "outDir": "bin"
   }, 
-  "include": ["src/**/*", "src/tests/**/*"]
+  "include": ["src/**/*", "src/tests/**/*", "src/commands/.ts"]
 }

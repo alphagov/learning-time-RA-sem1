@@ -25,6 +25,8 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "prettier . --write ; eslint . --fix"
-  }
+    "lint": "prettier . --write ; eslint . --fix",
+    "build": "tsc"
+  },
+  "bin": "bin/cli.js"
 }
