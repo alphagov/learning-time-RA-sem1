@@ -1,11 +1,11 @@
 import { getRepoLanguage } from "./languageSearch";
 import { returnDependencyFile } from "./extractDependecies";
 import { dependencyFiles,
-        parseDependencyData } from "./utils/parseDependencyPackages";
+        parseDependencyData } from "./parseDependencyPackages";
 
 
 
-const getRepoDependencies = async(org: string, repoName: string ) => {
+export const getRepoDependencies = async(org: string, repoName: string ) => {
     const repoLanguages = await getRepoLanguage(org, repoName)
     const languages = Object.keys(repoLanguages[repoName])
     const dependencies : any[] = [] //TODO: #2 Fix this

@@ -41,6 +41,6 @@ const getAllOrgRepoLangs = async (org: string) => {
 
 const getFilteredRepoLanguages = async (org: string, filterKey: string) => {
   const repos = await repoNameSearch(org, filterKey)
-  return await getRepoLanguagesFromList(repos)
+  return await getRepoLanguagesFromList(repos[`${org}/"${filterKey}"`])
 }
 

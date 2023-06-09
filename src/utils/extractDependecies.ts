@@ -1,7 +1,7 @@
 import { Endpoints } from '@octokit/types'
 import { Octokit } from 'octokit'
 import { getRepoLanguage } from './languageSearch'
-import { convertBase64ToString } from './utils/convertBase64'
+import { convertBase64ToString } from './convertBase64'
 import { ArrayElement } from './repos'
 
 const token = process.env.GITHUB_KEY
