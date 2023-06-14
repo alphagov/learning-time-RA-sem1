@@ -1,4 +1,4 @@
-import { composePaginateRest } from "@octokit/plugin-paginate-rest"
+
 
 export const dependencyFiles: Record<string, string> = {
   JavaScript: 'package.json',

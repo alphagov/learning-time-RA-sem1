@@ -6,6 +6,8 @@
     "noUnusedParameters": false,
     "strict": true,
     "target": "es2020",
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+    "outDir": "bin"
+  }, 
+  "include": ["src/**/*", "src/tests/**/*", "src/commands/.ts"]
 }
