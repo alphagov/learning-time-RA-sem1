@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
+    "skipLibCheck": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "strict": true,
     "target": "es2020",
     "resolveJsonModule": true,
     "outDir": "bin"
-  }, 
+  },
   "include": ["src/**/*", "src/tests/**/*", "src/commands/.ts"]
 }

@@ -1,9 +1,10 @@
 import { Endpoints } from '@octokit/types'
 import { Octokit } from 'octokit'
-import { repoNameSearch, repoNames } from './repos'
+import { getAllRepoNamesPaginate } from './repos'
+// import { repoNameSearch, repoNames } from './repos'
 
 export type repoLanguageResponse =
-  Endpoints['GET /repos/{owner}/{repo}/languages']['response']['data']
+  Endpoints['GET /repos/{owner}/{repo}/languages']['response']
 
 const token = process.env.GITHUB_KEY
 
@@ -14,17 +15,14 @@ export const octokit = new Octokit({
 export const getRepoLanguage = async (
   owner: string,
   repoName: string
-): Promise<Record<string, repoLanguageResponse>> => {
-  return {
-    [repoName]: (
-      await octokit.request(`GET /repos/${owner}/${repoName}/languages`, {
+): Promise<Record<string, number| undefined>> => {
+ const res =  await octokit.request(`GET /repos/${owner}/${repoName}/languages`, {
         headers: {
           'X-GitHub-Api-Version': '2022-11-28'
         }
-      })
-    ).data
+      }) as repoLanguageResponse
+      return res.data
   }
-}
 
 const getRepoLanguagesFromList = async (repoNames: string[]) =>
   await Promise.all(
@@ -35,12 +33,6 @@ const getRepoLanguagesFromList = async (repoNames: string[]) =>
   )
 
 const getAllOrgRepoLangs = async (org: string) => {
-  const repos = await repoNames(org)
+  const repos = await getAllRepoNamesPaginate(org)
   return await getRepoLanguagesFromList(repos)
 }
-
-const getFilteredRepoLanguages = async (org: string, filterKey: string) => {
-  const repos = await repoNameSearch(org, filterKey)
-  return await getRepoLanguagesFromList(repos[`${org}/"${filterKey}"`])
-}
-

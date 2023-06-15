@@ -1,8 +1,6 @@
 import { Endpoints } from '@octokit/types'
 import { Octokit } from 'octokit'
-import { getRepoLanguage } from './languageSearch'
-import { convertBase64ToString } from './convertBase64'
-import { ArrayElement } from './repos'
+import { convertBase64ToString } from '../convertBase64'
 
 const token = process.env.GITHUB_KEY
 
@@ -11,23 +9,28 @@ export const octokit = new Octokit({
 })
 
 type contentsRequestData =
-  Endpoints['GET /repos/{owner}/{repo}/contents/{path}']['response']['data']
+  Endpoints['GET /repos/{owner}/{repo}/contents/{path}']['response']
+type contentsDataResponseKeys = keyof contentsRequestData['data']
 
 const makeContentsRequest = async (
   org: string,
   repoName: string,
   fileName: string
 ): Promise<contentsRequestData> => {
-  return (
-    (await octokit.request(`GET /repos/${org}/${repoName}/contents/${fileName}`, 
+  const res = await octokit.request(
+    `GET /repos/{owner}/{repo}/contents/{path}`,
     {
+      owner: org,
+      repo: repoName,
+      path: fileName,
       per_page: 100,
       page: 1,
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
       }
-    })).data
+    }
   )
+  return res
 }
 
 export const returnDependencyFile = async (
@@ -35,9 +38,6 @@ export const returnDependencyFile = async (
   repoName: string,
   filename: string
 ) => {
-  const res = await makeContentsRequest(org, repoName, filename) as any //TODO: this is a gross fudge, will return to vanquish this
-  return (convertBase64ToString(res.content as string))
+  const { data } = await makeContentsRequest(org, repoName, filename)
+  return convertBase64ToString(data['content' as contentsDataResponseKeys])
 }
-
-
-
