@@ -1,6 +1,7 @@
 import { Endpoints } from '@octokit/types'
 import { Octokit } from 'octokit'
-import { repoNameSearch, repoNames } from './repos'
+import { getAllRepoNamesPaginate } from './repos'
+// import { repoNameSearch, repoNames } from './repos'
 
 export type repoLanguageResponse =
   Endpoints['GET /repos/{owner}/{repo}/languages']['response']['data']
@@ -35,12 +36,6 @@ const getRepoLanguagesFromList = async (repoNames: string[]) =>
   )
 
 const getAllOrgRepoLangs = async (org: string) => {
-  const repos = await repoNames(org)
+  const repos = await getAllRepoNamesPaginate(org)
   return await getRepoLanguagesFromList(repos)
 }
-
-const getFilteredRepoLanguages = async (org: string, filterKey: string) => {
-  const repos = await repoNameSearch(org, filterKey)
-  return await getRepoLanguagesFromList(repos[`${org}/"${filterKey}"`])
-}
-
