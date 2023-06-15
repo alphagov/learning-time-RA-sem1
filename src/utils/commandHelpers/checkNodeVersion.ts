@@ -8,5 +8,3 @@ const checkNodeVersion = async(org: string, repoName: string) => {
     console.log(`${repoName} uses Node version(s) ${nvmrcFiles}`)
 }
 
-
-checkNodeVersion('alphagov', 'di-txma-infra')
