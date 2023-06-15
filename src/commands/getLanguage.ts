@@ -1,12 +1,12 @@
-
 import type { Arguments, CommandBuilder } from 'yargs'
+import { getRepoLanguage } from '../utils/commandHelpers/languageSearch'
 
 
 type Options = {
   org: string
   repoName: string
 }
-import { getRepoLanguage } from '../utils/languageSearch'
+
 
 
 export const builder: CommandBuilder<Options, Options> = (yargs) =>

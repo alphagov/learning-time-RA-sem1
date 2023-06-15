@@ -1992,6 +1992,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/plugin-paginate-rest@npm:^7.1.1":
+  version: 7.1.1
+  resolution: "@octokit/plugin-paginate-rest@npm:7.1.1"
+  dependencies:
+    "@octokit/tsconfig": ^1.0.2
+    "@octokit/types": ^9.3.2
+  peerDependencies:
+    "@octokit/core": ">=4"
+  checksum: c97555d791e69dfa099ee6887291828b3d5bf526519dc64f7a3556a854bd3a94fd8851ac1ab3c5ab226de26dd72c4995864737ca9187d0167216ff74be86a7a2
+  languageName: node
+  linkType: hard
+
 "@octokit/plugin-rest-endpoint-methods@npm:^7.1.1":
   version: 7.2.2
   resolution: "@octokit/plugin-rest-endpoint-methods@npm:7.2.2"
@@ -2079,7 +2091,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:^9.0.0, @octokit/types@npm:^9.2.2, @octokit/types@npm:^9.2.3":
+"@octokit/types@npm:^9.0.0, @octokit/types@npm:^9.2.2, @octokit/types@npm:^9.2.3, @octokit/types@npm:^9.3.2":
   version: 9.3.2
   resolution: "@octokit/types@npm:9.3.2"
   dependencies:
@@ -4700,6 +4712,8 @@ __metadata:
   dependencies:
     "@babel/core": ^7.21.8
     "@babel/preset-env": ^7.21.5
+    "@octokit/core": ^4.2.1
+    "@octokit/plugin-paginate-rest": ^7.1.1
     "@octokit/request-error": ^3.0.3
     "@octokit/types": ^9.2.2
     "@octokit/webhooks": ^12.0.1
