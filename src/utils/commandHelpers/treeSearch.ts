@@ -98,7 +98,7 @@ export const getAllFiles = async (
   return Promise.all(
     paths.map(async (path) => {
       const file = await returnDependencyFile(org, repoName, path)
-      return JSON.parse(file)
+      return file
     })
   )
 }
