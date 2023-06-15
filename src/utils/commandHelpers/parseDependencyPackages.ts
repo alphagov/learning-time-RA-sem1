@@ -1,5 +1,3 @@
-
-
 export const dependencyFiles: Record<string, string> = {
   JavaScript: 'package.json',
   TypeScript: 'package.json',
@@ -19,12 +17,14 @@ export const extractPackageJsonDependencies = (data: string) => {
 }
 
 const extractPythonDependencies = (data: string) => {
-    return data.split('\n').reduce((acc: Record<string, string> , line: string) => {
-        if(!line.includes('#') && line.length>1){
-            const [name, version] = line.split('==')
-            acc[name] = version
-        }
-        return acc
+  return data
+    .split('\n')
+    .reduce((acc: Record<string, string>, line: string) => {
+      if (!line.includes('#') && line.length > 1) {
+        const [name, version] = line.split('==')
+        acc[name] = version
+      }
+      return acc
     }, {})
 }
 
@@ -35,9 +35,8 @@ export const parseDependencyData = (language: string, data: string) => {
     case 'TypeScript':
       return extractPackageJsonDependencies(data)
     case 'Python':
-        return extractPythonDependencies(data)
+      return extractPythonDependencies(data)
     default:
       break
   }
 }
-
