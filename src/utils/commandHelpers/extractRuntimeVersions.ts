@@ -5,7 +5,7 @@ export const runtimesFiles: Record<string, string> = {
   TypeScript: '.nvmrc'
 }
 
-export const extractRuntimeVersions = async(
+export const extractRuntimeVersions = async (
   org: string,
   repoName: string,
   language: string

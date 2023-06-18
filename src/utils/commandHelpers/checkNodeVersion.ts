@@ -15,7 +15,10 @@ export const checkNodeVersion = async (org: string, repoName: string) => {
     )
   }
   return `${
-    nvmrcFiles.length == 0 ? nodeVersions.length == 0 ? 'No Node version files found' : nodeVersions : nvmrcFiles
+    nvmrcFiles.length == 0
+      ? nodeVersions.length == 0
+        ? 'No Node version files found'
+        : nodeVersions
+      : nvmrcFiles
   } `
 }
-
