@@ -31,5 +31,8 @@
     "lint": "prettier . --write ; eslint . --fix",
     "build": "tsc"
   },
-  "bin": "bin/cli.js"
+  "bin": "bin/cli.js",
+  "dependencies": {
+    "husky": "^8.0.3"
+  }
 }

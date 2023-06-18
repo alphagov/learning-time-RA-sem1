@@ -15,14 +15,17 @@ export const octokit = new Octokit({
 export const getRepoLanguage = async (
   owner: string,
   repoName: string
-): Promise<Record<string, number| undefined>> => {
- const res =  await octokit.request(`GET /repos/${owner}/${repoName}/languages`, {
-        headers: {
-          'X-GitHub-Api-Version': '2022-11-28'
-        }
-      }) as repoLanguageResponse
-      return res.data
-  }
+): Promise<Record<string, number | undefined>> => {
+  const res = (await octokit.request(
+    `GET /repos/${owner}/${repoName}/languages`,
+    {
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    }
+  )) as repoLanguageResponse
+  return res.data
+}
 
 const getRepoLanguagesFromList = async (repoNames: string[]) =>
   await Promise.all(

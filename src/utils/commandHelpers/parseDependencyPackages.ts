@@ -10,9 +10,12 @@ export const extractPackageJsonDependencies = (data: string) => {
   const parsedData: Record<string, string> = JSON.parse(data)
   const dependencies = parsedData.dependencies
   const devDependencies = parsedData.devDependencies
+  if(!dependencies && !devDependencies) return { [parsedData.name]: "No dependecies detected" }
   return {
-    dependencies,
-    devDependencies
+    [parsedData.name]: {
+      dependencies,
+      devDependencies
+    }
   }
 }
 
@@ -37,6 +40,7 @@ export const parseDependencyData = (language: string, data: string) => {
     case 'Python':
       return extractPythonDependencies(data)
     default:
+      console.log(`The language ${language} is currently unsupported.`)
       break
   }
 }

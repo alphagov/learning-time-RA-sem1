@@ -1,19 +1,19 @@
 import type { Arguments, CommandBuilder } from 'yargs'
+import { getRepoDependencies } from '../utils/commandHelpers/getDependencies'
 
 type Options = {
   org: string
-  repoName: string
+  repo: string
 }
-import { getRepoDependencies } from '../utils/getDependencies'
 
 export const builder: CommandBuilder<Options, Options> = (yargs) =>
   yargs
     .positional('org', { type: 'string', demandOption: true })
-    .positional('repoName', { type: 'string', demandOption: true })
+    .positional('repo', { type: 'string', demandOption: true })
 
 export const handler = async (argv: Arguments<Options>): Promise<void> => {
-  const { org, repoName } = argv
-  const res = await getRepoDependencies(org, repoName)
+  const { org, repo } = argv
+  const res = await getRepoDependencies(org, repo)
   process.stdout.write(JSON.stringify(res))
   process.exit(0)
 }
