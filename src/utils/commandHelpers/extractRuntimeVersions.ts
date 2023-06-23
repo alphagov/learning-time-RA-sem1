@@ -17,7 +17,7 @@ export const extractRuntimeVersions = async (
     case 'TypeScript':
       return `${language}: ${await checkNodeVersion(org, repoName)}`
     case 'Python':
-      return`${language}: ${await checkNodeVersion(org, repoName)}`
+      return `${language}: ${await checkNodeVersion(org, repoName)}`
     default:
       console.log(
         `Cannot extract runtime information for ${language} as it is currently unsupported.`

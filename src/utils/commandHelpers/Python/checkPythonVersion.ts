@@ -8,8 +8,7 @@ export const checkPythonVersion = async (org: string, repoName: string) => {
     )
   }
 
- 
   return `${
-    pythonVersion.length == 0 ? 'No Python version files found': pythonVersion
+    pythonVersion.length == 0 ? 'No Python version files found' : pythonVersion
   } `
 }
