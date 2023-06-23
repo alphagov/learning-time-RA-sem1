@@ -11,7 +11,7 @@ export const extractPackageJsonDependencies = (data: string) => {
   const dependencies = parsedData.dependencies
   const devDependencies = parsedData.devDependencies
   if (!dependencies && !devDependencies)
-    return { [parsedData.name]: 'No dependecies detected' }
+    return { [parsedData.name + ' package.json']: 'No dependecies detected' }
   return {
     [parsedData.name]: {
       dependencies,

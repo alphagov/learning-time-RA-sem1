@@ -1,4 +1,4 @@
-import { checkNodeVersion } from './checkNodeVersion'
+import { checkNodeVersion } from './TypescriptandJavascript/checkNodeVersion'
 
 export const runtimesFiles: Record<string, string> = {
   JavaScript: '.nvmrc',

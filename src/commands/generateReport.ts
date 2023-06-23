@@ -23,7 +23,7 @@ export const handler = async (argv: Arguments<Options>): Promise<void> => {
   const { org, repo, writeOut, path } = argv
   const res = await generateRepoReport(org, repo)
   if (writeOut && path) {
-    await writeOutJson(path, `${org}-report`, JSON.stringify(res))
+    await writeOutJson(path, `${org}-${repo}-report`, JSON.stringify(res))
   } else {
     process.stdout.write(JSON.stringify(res))
   }

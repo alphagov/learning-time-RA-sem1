@@ -1,4 +1,4 @@
-import { getAllFiles } from './treeSearch'
+import { getAllFiles } from '../treeSearch'
 
 export const checkNodeVersion = async (org: string, repoName: string) => {
   const nvmrcFiles = await getAllFiles(org, repoName, '.nvmrc')
